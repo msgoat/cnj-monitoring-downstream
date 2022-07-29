@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2022-07-29
+### Added
+### Changed
+- upgraded to cnj-common-obervability-spring 0.3.0 to have support of Undertow metrics
+
 ## [2.1.0] - 2022-03-09
 ### Added
 ### Changed
