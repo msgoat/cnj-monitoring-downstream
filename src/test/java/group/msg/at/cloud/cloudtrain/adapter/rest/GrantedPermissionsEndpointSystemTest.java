@@ -1,5 +1,6 @@
 package group.msg.at.cloud.cloudtrain.adapter.rest;
 
+import group.msg.at.cloud.cloudtrain.core.entity.GrantedPermission;
 import group.msg.at.cloud.common.test.rest.RestAssuredSystemTestFixture;
 import io.restassured.http.ContentType;
 import io.restassured.response.ExtractableResponse;
@@ -8,16 +9,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import jakarta.json.Json;
-import jakarta.json.JsonArray;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UncheckedIOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * System test that verifies that the REST endpoint works as expected.
@@ -54,18 +51,7 @@ public class GrantedPermissionsEndpointSystemTest {
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .extract();
-        JsonArray permissions = asJsonArray(response);
-        assertFalse(permissions.isEmpty(), "permissions must not be empty!");
+        GrantedPermission[] permissions = response.as(GrantedPermission[].class);
+        assertNotEquals(0, permissions.length, "permissions must not be empty!");
     }
-
-    private JsonArray asJsonArray(ExtractableResponse response) {
-        JsonArray result = null;
-        try (InputStream in = response.body().asInputStream()) {
-            result = Json.createReader(in).readArray();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-        return result;
-    }
-
 }

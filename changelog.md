@@ -6,9 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2023-02-23
+### Changed
+- upgraded to Java 17
+- upgraded to Spring Boot 3.0.2
+- consolidated with hello world use case
+
 ## [2.3.0] - 2022-08-12
 ### Changed
-- upgraded to cnj-common-obervability-spring 0.4.0 to have consolidated Undertow metric names
+- upgraded to cnj-common-observability-spring 0.4.0 to have consolidated Undertow metric names
 - name of Spring Boot application JAR is using suffix `-spring` now
 
 ## [2.2.0] - 2022-07-29

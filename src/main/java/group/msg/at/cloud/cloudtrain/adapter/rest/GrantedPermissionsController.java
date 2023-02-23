@@ -4,6 +4,7 @@ import group.msg.at.cloud.cloudtrain.core.boundary.GrantedPermissionManager;
 import group.msg.at.cloud.cloudtrain.core.entity.GrantedPermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class GrantedPermissionsController {
     GrantedPermissionManager boundary;
 
     @GetMapping
+    @Secured("CLOUDTRAIN_USER")
     public ResponseEntity<List<GrantedPermission>> getPermissionsByCurrentUser() {
         return ResponseEntity.ok(this.boundary.getGrantedPermissionsByCurrentUser());
     }
