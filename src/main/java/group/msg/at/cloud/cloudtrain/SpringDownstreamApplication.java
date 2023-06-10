@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Point of entry for this Spring Boot application.
  */
-@SpringBootApplication(scanBasePackageClasses = {SpringDownstreamApplication.class, CommonObservability.class})
+@SpringBootApplication
 public class SpringDownstreamApplication {
 
     public static void main(String[] args) {
